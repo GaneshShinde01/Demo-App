@@ -9,9 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.learnandroid.demoapp.R;
+import com.learnandroid.demoapp.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
 
+    FragmentHomeBinding binding;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -25,5 +27,11 @@ public class HomeFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_home, container, false);
 
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
     }
 }
