@@ -9,9 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.learnandroid.demoapp.R;
+import com.learnandroid.demoapp.databinding.FragmentProfileBinding;
 
 public class ProfileFragment extends Fragment {
 
+    FragmentProfileBinding binding;
 
 
     public ProfileFragment() {
