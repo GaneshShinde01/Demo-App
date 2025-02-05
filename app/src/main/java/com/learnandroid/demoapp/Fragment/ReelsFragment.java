@@ -9,8 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.learnandroid.demoapp.R;
+import com.learnandroid.demoapp.databinding.FragmentReelsBinding;
 
 public class ReelsFragment extends Fragment {
+    FragmentReelsBinding binding;
 
 
     public ReelsFragment() {
@@ -22,6 +24,10 @@ public class ReelsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_reels, container, false);
+        //return inflater.inflate(R.layout.fragment_reels, container, false);
+        binding = FragmentReelsBinding.inflate(inflater,container,false);
+
+
+        return binding.getRoot();
     }
 }
