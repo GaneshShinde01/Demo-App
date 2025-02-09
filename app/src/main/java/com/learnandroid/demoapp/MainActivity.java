@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         binding.bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                return false;
+                return true;
             }
         });
     }
