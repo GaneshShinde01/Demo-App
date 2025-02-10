@@ -10,6 +10,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.learnandroid.demoapp.Fragment.HomeFragment;
@@ -55,7 +57,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadFragment(Fragment fragment) {
 
-
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.containerMA,fragment);
+        ft.commit();
     }
 
     @Override
