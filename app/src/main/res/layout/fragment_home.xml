@@ -27,13 +27,15 @@
             android:layout_width="37dp"
             android:layout_height="37dp"
             android:background="@drawable/heart"
-
+            android:layout_margin="5dp"
             />
 
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="37dp"
             android:layout_height="37dp"
             android:background="@drawable/message"
+            android:layout_margin="5dp"
+
             />
 
     </LinearLayout>
