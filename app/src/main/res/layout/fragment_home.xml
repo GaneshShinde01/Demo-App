@@ -17,9 +17,11 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="2"
             >
             <TextView
-                android:layout_width="280dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Instagram"
                 android:id="@+id/Insta"
@@ -34,16 +36,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_weight="1"
+
             >
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="37dp"
                 android:layout_height="37dp"
+                android:layout_margin="8dp"
                 android:background="@drawable/heart" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="37dp"
                 android:layout_height="37dp"
+                android:layout_margin="8dp"
                 android:background="@drawable/message"
 
                 />
