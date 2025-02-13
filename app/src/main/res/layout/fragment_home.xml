@@ -45,6 +45,7 @@
                 android:layout_width="37dp"
                 android:layout_height="37dp"
                 android:layout_margin="8dp"
+                android:padding="20dp"
                 android:background="@drawable/heart" />
 
             <androidx.appcompat.widget.AppCompatButton
