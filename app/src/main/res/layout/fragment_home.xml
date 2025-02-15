@@ -26,6 +26,7 @@
                 android:text="Instagram"
                 android:id="@+id/Insta"
                 android:textSize="37sp"
+                android:textStyle="bold"
                 android:layout_marginStart="12dp"
                 android:fontFamily="cursive"
                 />
