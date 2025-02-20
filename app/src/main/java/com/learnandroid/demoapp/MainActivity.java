@@ -61,39 +61,39 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-    }
+
+        getOnBackPressedDispatcher().addCallback(new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
 
 
-    getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
-        @Override
-        public void handleOnBackPressed() {
+                Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.containerMA);
+                // If the current fragment is not Home1Fragment, go to Home1Fragment
+                if (!(currentFragment instanceof HomeFragment)) {
+                    loadFragment(new HomeFragment());
+                    binding.bottomNav.setSelectedItemId(R.id.nav_Home);  // Set the home item selected
 
-
-            Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.frame);
-            // If the current fragment is not Home1Fragment, go to Home1Fragment
-            if (!(currentFragment instanceof HomeFragment)) {
-                loadFramgent(new HomeFragment());
-                binding.bottomNav.setSelectedItemId(R.id.navHome);  // Set the home item selected
-
-            } else {
-                // If already in Home1Fragment, handle double back press to exit
-                if (doubleBackToExitPressedOnce) {
-                    finish();
                 } else {
-                    doubleBackToExitPressedOnce = true;
-                    Toast.makeText(MainActivity.this, "Press back again to exit", Toast.LENGTH_SHORT).show();
+                    // If already in Home1Fragment, handle double back press to exit
+                    if (doubleBackToExitPressedOnce) {
+                        finish();
+                    } else {
+                        doubleBackToExitPressedOnce = true;
+                        Toast.makeText(MainActivity.this, "Press back again to exit", Toast.LENGTH_SHORT).show();
 
-                    // Reset the flag after 2 seconds
-                    new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            doubleBackToExitPressedOnce = false;
-                        }
-                    }, 2000);
+                        // Reset the flag after 2 seconds
+                        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                doubleBackToExitPressedOnce = false;
+                            }
+                        }, 2000);
+                    }
                 }
             }
-        }
-    });
+        });
+    }
+
 
 
     private void loadFragment(Fragment fragment) {
