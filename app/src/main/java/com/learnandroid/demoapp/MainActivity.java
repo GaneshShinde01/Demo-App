@@ -1,9 +1,13 @@
 package com.learnandroid.demoapp;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -56,6 +60,39 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
+    getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+        @Override
+        public void handleOnBackPressed() {
+
+
+            Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.frame);
+            // If the current fragment is not Home1Fragment, go to Home1Fragment
+            if (!(currentFragment instanceof HomeFragment)) {
+                loadFramgent(new HomeFragment());
+                binding.bottomNav.setSelectedItemId(R.id.navHome);  // Set the home item selected
+
+            } else {
+                // If already in Home1Fragment, handle double back press to exit
+                if (doubleBackToExitPressedOnce) {
+                    finish();
+                } else {
+                    doubleBackToExitPressedOnce = true;
+                    Toast.makeText(MainActivity.this, "Press back again to exit", Toast.LENGTH_SHORT).show();
+
+                    // Reset the flag after 2 seconds
+                    new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            doubleBackToExitPressedOnce = false;
+                        }
+                    }, 2000);
+                }
+            }
+        }
+    });
+
 
     private void loadFragment(Fragment fragment) {
 
